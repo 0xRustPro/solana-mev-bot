@@ -1,38 +1,31 @@
-### 项目概述
+# Solana MEV Bot
 
-本项目是一个基于推特数据抓取和链上信息分析的自动化交易执行机器人。通过整合多源数据流和智能策略，系统能够实时捕捉市场动态并自动执行交易操作。
+A high-performance Maximal Extractable Value (MEV) trading bot for the Solana blockchain.  
+This bot listens to the Solana mempool, detects profitable opportunities (arbitrage, liquidations, or sandwich trades), and submits optimized transactions.
 
-### 系统架构
+---
 
-#### 1. 信息获取模块
-- **推特数据抓取**：实时监控和解析加密货币相关推文
-- **GMGN信息**：集成GMGN平台的市场情报
-- **DEX Screener**：获取去中心化交易所的实时交易数据
-- **聪明钱包监控**：追踪高净值钱包的实时交易活动
-- **Pump.fun监控**：监控Meme币市场动态
-- **Raydium监控**：实时获取Raydium DEX的交易信息
+## Features
+- **Real-time transaction monitoring** via WebSocket or RPC.
+- **Custom strategy engine** for arbitrage or liquidity opportunities.
+- **Jito Bundle support** for priority transaction execution.
+- **Risk management** with adjustable slippage and profit thresholds.
+- **Logging & Metrics** for trade analysis.
 
-#### 2. 交易执行模块
-- **指令构建器**：
-  - Pump.fun交易指令生成
-  - Raydium交易指令生成
-- **交易发送器**：安全可靠的链上交易执行
+---
 
-#### 3. 策略模块
-- **买入策略**：基于多维度数据分析的入场策略
-- **卖出策略**：动态止盈止损机制
-- **风险控制**：实时风险评估与仓位管理
+## Requirements
+- [Rust](https://www.rust-lang.org/) (for Solana programs)
+- [Node.js](https://nodejs.org/) (for the client-side script)
+- [Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools)
+- A funded Solana wallet with RPC/WebSocket access
+- (Optional) [Jito Labs](https://jito.network/) account for bundle submission
 
-### 系统特点
-- 多源数据整合，确保信息全面性
-- 实时监控与快速响应机制
-- 模块化设计，便于策略优化和功能扩展
-- 严格的风险控制体系
+---
 
-### 技术优势
-- 高效的数据抓取与处理能力
-- 智能化的交易决策系统
-- 可靠的链上交易执行
-- 持续优化的策略模型
+## Installation
+Clone the repository:
+```bash
+git clone https://github.com/yourusername/solana-mev-bot.git
+cd solana-mev-bot
 
-该系统旨在为加密货币交易提供高效、智能的自动化解决方案，通过整合多维度市场信息和智能交易策略，帮助用户在快速变化的市场中把握交易机会。
